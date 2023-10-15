@@ -12,7 +12,6 @@
       justify-content: center;
       height: 100vh;
       background-color: #000000;
-      
     }
 
     .btn-container {
@@ -33,10 +32,13 @@
       text-align: center;
       line-height: 100px;
       cursor: pointer;
-      transition: opacity 0.3s;
+      transition: opacity 0.3s, transform 0.5s; /* Agregado 'transform' a la transición */
       margin: 20px;
-      color: rgba(255, 255, 255, 0.657);
-      border:none;
+      color: rgba(0, 0, 0, 1);
+      border: 2px solid black;
+      background-color: white;
+      font-family: Arial, sans-serif;
+      animation: pulse 2s infinite alternate; /* Agregada la animación 'pulse' para que esté activa todo el tiempo */
     }
 
     .btn:hover {
@@ -44,38 +46,27 @@
     }
 
     .btn-alegria {
-      background-image: linear-gradient( 135deg, #FFA8A8 10%, #FCFF00 100%);
+      background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
     }
 
     .btn-tristeza {
-      background: #000046;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+      background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
     }
 
     .btn-ira {
-      background: #EB5757;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to right, #000000, #EB5757);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to right, #000000, #EB5757); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+      background-image: linear-gradient(to top, #c71d6f 0%, red 100%); 
     }
 
     .btn-sorpresa {
-      background-color: #060106;
-      background-image: linear-gradient(90deg, #060106 0%, #4c1e4c 46%, #c702ff 100%);
-
+      background-image: linear-gradient(to top, #cc208e 0%, #6713d2 100%);
     }
 
     .btn-calma {
-      background-image: linear-gradient( 135deg, #FFF5C3 10%, #9452A5 100%);
+      background-image: linear-gradient(to top, #82bffc 0%, white 100%);
     }
 
     .btn-miedo {
-      background: #52c234;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to right, #061700, #52c234);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to right, #061700, #52c234); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+      background-image: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%);
     }
 
     .overlay {
@@ -100,7 +91,6 @@
       text-align: center;
       margin-top: 50%;
     }
-    
 
     @keyframes overlayAnimation {
       0% {
@@ -120,7 +110,17 @@
       }
     }
 
-    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.30); /* Escala para hacer el botón más grande */
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
 
     @media (max-width: 768px) {
       .btn {
@@ -132,9 +132,6 @@
     }
   </style>
 </head>
-
-
-
 <body>
   <div class="btn-container">
     <button class="btn btn-alegria" onclick="showColor('alegria')">Alegría</button>
@@ -146,9 +143,6 @@
     <div class="overlay"></div>
     <div class="text"></div>
   </div>
-
-
-  
 
   <script>
     function showColor(emotion) {
@@ -167,7 +161,7 @@
           color = 'purple';
           break;
         case 'calma':
-          color = 'lightpink';
+          color = 'lightblue';
           break;
         case 'miedo':
           color = 'green';
